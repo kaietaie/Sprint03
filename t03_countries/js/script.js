@@ -16,6 +16,7 @@ function corrector() {
         }
         if( !lishky[i].attributes[1] ) {
             document.getElementsByTagName("li")[i].setAttribute('data-feature',"")
+            
 
         }
 
@@ -23,27 +24,41 @@ function corrector() {
 }
 
 function setlogo() {
-    const mount_img = `<div><img src="assets/images/mountain.png" style="max-width: 40px"/></div>`,
-        beach_img = `<div><img src="assets/images/beach.png" style="max-width: 40px"/></div>`,
-        mix_img = `<div><img src="assets/images/beach.png" style="max-width: 40px"/>
-        <img src="assets/images/mountain.png" style="max-width: 40px"/></div>`,
-        none_img = `<div><img src="assets/images/none.png" style="max-width: 40px"/></div>`;
+    // const mount_img = `<div><img src="assets/images/mountain.png" style="max-width: 40px"/></div>`,
+    //     beach_img = `<div><img src="assets/images/beach.png" style="max-width: 40px"/></div>`,
+    //     mix_img = `<div><img src="assets/images/beach.png" style="max-width: 40px"/>
+    //     <img src="assets/images/mountain.png" style="max-width: 40px"/></div>`,
+    //     none_img = `<div><img src="assets/images/none.png" style="max-width: 40px"/></div>`;
+        
+        
+
 
         countr_array.forEach(param => {
             console.log(param.attributes[1].value)
         
         switch(param.attributes[1].value) {
             case "mountains":
-                param.innerHTML = param.innerHTML + mount_img;
+                div = document.createElement('div');
+                div.classList.add('mountains', 'feature');
+                param.appendChild(div); 
                 break;
             case "beach":
-                param.innerHTML = param.innerHTML + beach_img;
+                div = document.createElement('div');
+                div.classList.add('beach', 'feature');
+                param.appendChild(div); 
                 break;
             case "beach mountains":
-                param.innerHTML = param.innerHTML + mix_img;
-                break;
+                div1 = document.createElement('div');
+                div2 = document.createElement('div')
+                div1.classList.add('beach', 'feature');
+                div2.classList.add('mountains', 'feature');
+                param.appendChild(div1);
+                param.appendChild(div2);
+                break;            
             case "":
-                param.innerHTML = param.innerHTML + none_img;
+                div = document.createElement('div');
+                div.classList.add('feature', 'line');
+                param.appendChild(div); 
                 break;
         }
     });  

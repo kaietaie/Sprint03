@@ -33,21 +33,21 @@ li {
 .oceania {background-color: #306b34;}
 
 .feature {
-    display: inline-block;
+    display:inline-block;
     width: 35px;
     height: 35px;
     border-radius: 50%;
     border: 2px solid #fffbff;
     margin: 3px;
-    background-color: #fffbff;
-    background-size: 70%;
+    /* background-color: #fffbff; */
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .mountains {background-image: url("../assets/images/mountain.png");}
 .beach {background-image: url("../assets/images/beach.png");}
-.none {background-image: url("../assets/images/none.png");}
+.none {background-color: #aaabbc;}
 
 .line {
     position: relative;
