@@ -1,68 +1,55 @@
-document.body.style.background = "red";
-setTimeout(() => document.body.style.background = '', 1000);
-
 let countr_array = Array.from( document.querySelectorAll("li")),
     feature = document.querySelectorAll("data-feature");
+let lishky = document.getElementsByTagName("li"),
+    attr = [],
+    key = 0;
 
-let lishky = document.getElementsByTagName("li");
-
-
-function corrector() {
-    for( i = 0 ; i < countr_array.length ; i++) {
-    class_ind = countr_array[i].classList.value;
+function corrector(i) {
+        class_ind = i.classList.value;
     
         if(class_ind !== "europe" && class_ind !== "africa" && class_ind !== "oceania" && class_ind !== "asia" && class_ind !== "americas") {
-            countr_array[i].classList.value = 'europe'
+            i.classList.value = 'europe' ; 
+        };
+        if( !i.attributes[1] ) {
+            i.setAttribute('data-feature',"none")
         }
-        if( !lishky[i].attributes[1] ) {
-            document.getElementsByTagName("li")[i].setAttribute('data-feature',"")
-            
-
-        }
-
-    }
 }
 
-function setlogo() {
-    // const mount_img = `<div><img src="assets/images/mountain.png" style="max-width: 40px"/></div>`,
-    //     beach_img = `<div><img src="assets/images/beach.png" style="max-width: 40px"/></div>`,
-    //     mix_img = `<div><img src="assets/images/beach.png" style="max-width: 40px"/>
-    //     <img src="assets/images/mountain.png" style="max-width: 40px"/></div>`,
-    //     none_img = `<div><img src="assets/images/none.png" style="max-width: 40px"/></div>`;
+function setlogo(param) {
+        attr[key] = param.attributes[1].value; //array with attributes
         
-        
+        if(param.attributes[1].value == attr[key]) { 
+            if( attr[key] !== 'none'){
+                let clas = attr[key].split(" "),
+                    k = clas.join(' '),
+                    arr = k.split(' ');
 
-
-        countr_array.forEach(param => {
-            console.log(param.attributes[1].value)
-        
-        switch(param.attributes[1].value) {
-            case "mountains":
-                div = document.createElement('div');
-                div.classList.add('mountains', 'feature');
-                param.appendChild(div); 
-                break;
-            case "beach":
-                div = document.createElement('div');
-                div.classList.add('beach', 'feature');
-                param.appendChild(div); 
-                break;
-            case "beach mountains":
-                div1 = document.createElement('div');
-                div2 = document.createElement('div')
-                div1.classList.add('beach', 'feature');
-                div2.classList.add('mountains', 'feature');
-                param.appendChild(div1);
-                param.appendChild(div2);
-                break;            
-            case "":
-                div = document.createElement('div');
-                div.classList.add('feature', 'line');
-                param.appendChild(div); 
-                break;
-        }
-    });  
+                for( i=0; i < arr.length; i++ ) {
+                    div = document.createElement('div');
+                    div.classList.add(arr[i]); 
+                    div.classList.add("feature");
+                    param.appendChild(div);  
+                }  
+            } else {
+                    div = document.createElement('div');
+                    div = document.createElement('div');
+                    
+                    div.classList.add("feature");
+                    div.classList.add('line'); 
+                    param.appendChild(div);  
+            }   
+        }      
  }
 
-corrector();
-setlogo();
+function processPage() {
+    countr_array.forEach(param => {
+        lishky[key].innerHTML=`<div>${lishky[key].innerText}</div>`;
+        corrector(param);
+        setlogo(param);
+        key++;
+    })
+}
+
+
+
+processPage()
