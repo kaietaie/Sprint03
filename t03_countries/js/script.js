@@ -32,12 +32,12 @@ function setlogo(param) {
                 }  
             } else {
                     div = document.createElement('div');
-                    div = document.createElement('div');
-                    
+                    div1 = document.createElement('div');
+                    div1.classList.add('line'); 
                     div.classList.add("feature");
-                    div.classList.add('line'); 
-                    param.appendChild(div);  
+                    param.appendChild(div).appendChild(div1);  
             }   
+        
         }      
  }
 

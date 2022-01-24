@@ -1,0 +1,16 @@
+body {
+    max-width: 80%;
+
+}
+.slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 60%;
+    padding: auto;
+    margin: 150px;
+}
+
+.slider_list {
+    
+}

@@ -39,7 +39,7 @@ li {
     border-radius: 50%;
     border: 2px solid #fffbff;
     margin: 3px;
-    background-color: #fffbff;
+    /* background-color: #fffbff; */
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -47,14 +47,13 @@ li {
 
 .mountains {background-image: url("../assets/images/mountain.png");}
 .beach {background-image: url("../assets/images/beach.png");}
-.animals {background-image: url("../assets/images/animals.png");}
 .none {background-color: #aaabbc;}
 
 .line {
     position: relative;
     width: 35px;
     height: 2px;
-    background-color: #fffbff;
+    background-color: #fffbff;  
     border-radius: 0;
     top: 17px;
     transform: rotate(-225deg);
