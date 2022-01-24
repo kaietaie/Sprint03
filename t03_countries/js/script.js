@@ -35,6 +35,7 @@ function setlogo(param) {
                     div1 = document.createElement('div');
                     div1.classList.add('line'); 
                     div.classList.add("feature");
+                    div.classList.add("none");
                     param.appendChild(div).appendChild(div1);  
             }   
         
